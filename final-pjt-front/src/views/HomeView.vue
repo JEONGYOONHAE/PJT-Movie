@@ -1,0 +1,38 @@
+<template>
+  <div class="home">
+    <home-carousel></home-carousel>
+    <div class="ms-5">
+      <movie-search></movie-search>
+      <div>
+        <h3># 최신 상영 영화</h3>
+        <main-home></main-home>
+      </div>
+      <div>
+        <h3># 인기순 추천 영화</h3>
+        <main-home></main-home>
+      </div>
+      <div>
+        <h3># 활동 많이 한 유저</h3>
+        <user-active></user-active>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+import MainHome from '@/components/MainHome.vue'
+import UserActive from '@/components/UserActive.vue'
+import MovieSearch from '@/components/MovieSearch.vue'
+import HomeCarousel from '@/components/HomeCarousel.vue'
+
+export default {
+  name: 'HomeView',
+  components: {
+    MainHome,
+    UserActive,
+    MovieSearch,
+    HomeCarousel,
+  }
+}
+</script>
