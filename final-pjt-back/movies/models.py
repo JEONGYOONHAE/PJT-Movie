@@ -1,14 +1,11 @@
 from django.db import models
 from django.conf import settings
-
-
-class Genre(models.Model):
-    genre_ids = models.CharField(max_length=50)
+from articles.models import Article
 
 class Movie(models.Model):
     adult = models.BooleanField(default=False)
     backdrop_path = models.CharField(max_length=200)
-    genre_ids = models.ManyToManyField(Genre, related_name='genre_ids')
+    genre_ids = models.ManyToManyField(Article, related_name='genre_ids')
     original_language = models.CharField(max_length=100)
     original_title = models.CharField(max_length=200)
     overview = models.CharField(max_length=400)
