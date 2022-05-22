@@ -1,14 +1,14 @@
 #### 문제점
 
 1. ~~import error~~
-2. genre_ids를 어느 클래스와 연결해야하는지 모르겠음.. 현재는 Article과 연결
+2. Many-to-Many로 설정된 genre_ids 현재는 Article과 연결되어있는데
+   Genre 클래스를 따로 만들어서 정의해야하는건가 싶기도함
 3. django-seed 이용해서 데이터 만들었는데 
    - ~~401 에러 발생으로 데이터가 출력되지 않음..~~
    - articles detail 까지는 성공, like와 comments 는 또 안됨..
    - movies, accounts 데이터 보이지 않음 http 500
-   - 
 4. accounts url 불러올 때 page 없음
-5. admin도 안되고.. 되는게 없네...
+5. ~~admin도 안되고..~~ 되는게 없네...
 6. 영화 평점 범위를 0-10으로 설정하려고 보니, 영화 평점은 직접 입력하는 것이 아니라 받아오는 거라 범위 설정 필요가 없는 것같은데 게시글을 작성할 때 영화 평점 입력란이 있는건가..?
    Article 클래스의 rank가 평점에 해당하는건가?? 내일 물어봐야겠다.
 
