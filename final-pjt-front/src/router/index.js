@@ -112,7 +112,7 @@ router.beforeEach((to, from, next) => {
 
   const { isLoggedIn } = store.getters
 
-  const noAuthPages = ['login', 'signup', 'home']
+  const noAuthPages = ['login', 'signup', 'home', 'movieRank']
 
   const isAuthRequired = !noAuthPages.includes(to.name)
 
@@ -124,7 +124,7 @@ router.beforeEach((to, from, next) => {
   }
 
   if (!isAuthRequired && isLoggedIn) {
-    next({ name: 'home' })
+    next({ name: to.name })
   }
 })
 

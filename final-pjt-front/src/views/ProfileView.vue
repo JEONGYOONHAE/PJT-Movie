@@ -19,10 +19,12 @@
         <div>
           content: {{ article.content }}
         </div>
+        <hr>
       </div>
     </div>
     <div v-show="choose === 1">
       {{ profile.like_articles }}
+      <hr>
     </div>
     <div v-show="choose === 2">
       <div 
@@ -30,11 +32,9 @@
       :key="article.pk"
       >
         <div>
-          title: {{ article.title }}
+          제목 : {{ article.title }}
         </div>
-        <div>
-          content: {{ article.content }}
-        </div>
+        <hr>
       </div>
     </div>
   </div>

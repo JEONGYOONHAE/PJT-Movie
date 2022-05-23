@@ -1,14 +1,13 @@
 <template>
   <tr>
-
-    <th scope="row">{{ movie.pk }}</th>
+    <th scope="row">{{ index }}</th>
     <td>
       <router-link :to="{ name: 'movie', params: {moviePk: movie.pk } }">
         {{ movie.title }}
       </router-link>
     </td>
-    <td>평점</td>
-    <td>관심</td>
+    <td>{{ movie.vote_average }}</td>
+    <td>{{ movie.like_users.length }}</td>
   </tr>
 </template>
 
@@ -18,6 +17,7 @@ export default {
   name: 'MovieTableBody',
   props: {
     movie: Object,
+    index: Number,
   },
   
 }
