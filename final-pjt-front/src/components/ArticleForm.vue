@@ -1,5 +1,6 @@
 <template>
   <form @submit.prevent="onSubmit">
+    {{ article }}
     <div class="text-end"><button>{{ action }}</button></div>
     <div>
       <div class="py-1">
@@ -44,6 +45,7 @@ export default {
       if (this.action === 'create') {
         this.createArticle(this.formArticle)
       } else if (this.action === 'update') {
+        alert(this.article.pk)
         const payload = {
           pk: this.article.pk,
           ...this.formArticle,

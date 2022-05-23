@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex justify-content-center">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -8,13 +8,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="https://via.placeholder.com/900x300" alt="First slide">
+          <img class="d-block carousel-img" :src="randomImg[0]" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="https://via.placeholder.com/910x300" alt="Second slide">
+          <img class="d-block carousel-img" :src="randomImg[1]" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="https://via.placeholder.com/920x300" alt="Third slide">
+          <img class="d-block carousel-img" :src="randomImg[2]" alt="Third slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -30,11 +30,30 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
 export default {
   name: 'HomeCarousel',
+  props: {
+    movies: Object,
+  },
+  computed: {
+    randomImg() {
+      let randomMovie = _.sampleSize(this.movies, 3)
+      randomMovie = randomMovie.map( obj => {
+        return 'https://www.themoviedb.org/t/p/w342' + obj.poster_path
+      })
+      return randomMovie
+    },
+  },
+  methods: {
+    
+  }
 }
 </script>
 
 <style>
-
+.carousel-img {
+  
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="m-3">
     <h3>{{ article.title }}</h3>
-    {{ article.user.username }} | time
+    {{ article.user.username }} | {{ article.created_at }}
     <hr>
     <div v-if="isAuthor">
       <router-link :to="{ name: 'articleEdit', params: { articlePk } }">
@@ -19,7 +19,7 @@
         추천
         <span :class="{'text-danger': isLike }"><font-awesome-icon icon="fa-solid fa-heart" /></span>
         {{ likeCount }}
-        </button>
+      </button>
     </div>
     <hr>
     <comment-list :comments="article.comments"></comment-list>

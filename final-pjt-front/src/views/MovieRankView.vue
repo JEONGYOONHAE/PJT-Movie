@@ -12,7 +12,7 @@
       </thead>
       <tbody>
       <movie-table-body
-        v-for="(movie, index) in movies"
+        v-for="(movie, index) in moviesRank"
         :key="movie.pk"
         :index="index+1"
         :movie="movie"
@@ -25,12 +25,13 @@
 <script>
 import MovieTableBody from '@/components/MovieTableBody.vue'
 import { mapGetters , mapActions } from 'vuex'
+
 export default {
   name: 'MovieRankView',
   components: { MovieTableBody },
   computed: {
     ...mapGetters ([
-      'movies'
+      'moviesRank'
     ])
   },
   methods: {
