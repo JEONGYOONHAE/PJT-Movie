@@ -28,9 +28,9 @@ class MovieListSerializer(serializers.ModelSerializer):
             fields = ('pk', 'username')
 
     user = UserSerializer(read_only=True)       # user
-    comment_count = serializers.IntegerField()  # 댓글 수
-    article_count = serializers.IntegerField()  # 게시글 수 
+    # comment_count = serializers.IntegerField()  # 댓글 수
+    # article_count = serializers.IntegerField()  # 게시글 수 
 
     class Meta:
         model = Movie
-        fields = ('pk', 'user', 'original_title', 'poster_path', 'comment_count', 'article_count')
+        fields = ('pk', 'user', 'original_title', 'poster_path', 'overview')

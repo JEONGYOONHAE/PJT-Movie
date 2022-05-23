@@ -4,14 +4,14 @@ from .serializers import MovieListSerializer, MovieSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
-
+from django.db.models import Count
 # 영화 home
 @api_view(['GET'])
 def movie_list(request):
   # 최신영화, 평점 좋은 순으로 나열하는 것은 vue에서 하는지..? 
-  # 따로 order_by를 사용하지 않았음
   movies = Movie.objects.all()
   serializer = MovieListSerializer(movies, many=True)
+
   return Response(serializer.data)
 
 # 영화 추천
