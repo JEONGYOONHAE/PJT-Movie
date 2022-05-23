@@ -9,8 +9,8 @@
       </router-link>
       <button @click="deleteArticle(articlePk)">삭제</button>
     </div>
-    <div class="articleContent m-3">
-      <p>{{ article.content }}</p>
+    <div class="m-3">
+      <p class="articleContent">{{ article.content }}</p>
     </div>
     
     <hr>
@@ -58,5 +58,7 @@ export default {
 </script>
 
 <style>
-
+.articleContent {
+  white-space: pre-wrap;
+}
 </style>

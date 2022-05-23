@@ -4,12 +4,16 @@
     <span v-if="!isEditing">{{ payload.content }}</span>
     <span v-if="isEditing">
       <input type="text" v-model="payload.content">
-      <button @click="onUpdate">Update</button>|
-      <button @click="switchIsEditing">Cancle</button>
+      <span class="mx-3">
+        <button @click="onUpdate">Update</button> |
+        <button @click="switchIsEditing">Cancle</button>
+      </span>
     </span>
-
-    <span v-if="currentUser.username === comment.user.username && !isEditing">
-      <button @click="switchIsEditing">Edit</button>|
+    <span 
+      class="mx-3"
+      v-if="currentUser.username === comment.user.username && !isEditing"
+    >
+      <button @click="switchIsEditing">Edit</button> |
       <button @click="deleteComment(payload)">Delete</button>
     </span>
     <hr>

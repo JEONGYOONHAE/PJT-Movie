@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home text-center">
     <home-carousel></home-carousel>
     <div class="ms-5">
       <movie-search></movie-search>

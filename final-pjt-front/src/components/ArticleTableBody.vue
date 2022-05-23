@@ -4,6 +4,9 @@
     <td>
       <router-link :to="{ name: 'article', params: {articlePk: article.pk } }">
         {{ article.title }}
+        <span v-if="article.comment_count">
+          [{{ article.comment_count }}]
+        </span>
       </router-link>
     </td>
     <td>
