@@ -1,5 +1,6 @@
 <template>
   <tr>
+
     <th scope="row">{{ movie.pk }}</th>
     <td>
       <router-link :to="{ name: 'movie', params: {moviePk: movie.pk } }">
@@ -12,14 +13,13 @@
 </template>
 
 <script>
+
 export default {
   name: 'MovieTableBody',
   props: {
     movie: Object,
   },
-  computed: {
-
-  },
+  
 }
 </script>
 

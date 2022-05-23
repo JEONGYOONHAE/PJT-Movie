@@ -24,8 +24,8 @@ export default {
         method: 'get',
         headers: getters.authHeader
       })
-        .then(res => commit('SET_MOVIES', res.data))
-        .catch(err => console.error(err.response))
+        .then(res => commit('SET_MOVIES', res.data ))
+        .catch(err => console.error(err.response)) 
     },
     fetchMovie({ commit, getters }, moviePk) {
       axios({

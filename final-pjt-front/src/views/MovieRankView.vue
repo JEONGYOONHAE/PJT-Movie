@@ -1,6 +1,7 @@
 <template>
   <div class="m-3">
     <h1>영화 랭킹</h1>
+    {{ movies }}
     <table class="table text-center">
       <thead>
         <tr>
@@ -23,18 +24,22 @@
 
 <script>
 import MovieTableBody from '@/components/MovieTableBody.vue'
-
+import { mapGetters , mapActions } from 'vuex'
 export default {
   name: 'MovieRankView',
   components: { MovieTableBody },
   computed: {
-
+    ...mapGetters ([
+      'movies'
+    ])
   },
   methods: {
-
+    ...mapActions ([
+      'fetchMovies'
+    ])
   },
   created() {
-
+    this.fetchMovies()
   }
 }
 </script>
