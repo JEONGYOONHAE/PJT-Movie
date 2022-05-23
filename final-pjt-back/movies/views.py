@@ -1,12 +1,17 @@
 from django.shortcuts import render
+from django.db.models import Count
+from django.shortcuts import get_object_or_404
+
+from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
+from rest_framework.decorators import api_view, permission_classes
+
 from .models import Movie
 from .serializers import MovieListSerializer, MovieSerializer
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from django.shortcuts import get_object_or_404
-from django.db.models import Count
+
 # 영화 home
 @api_view(['GET'])
+@permission_classes([AllowAny])
 def movie_list(request):
   # 최신영화, 평점 좋은 순으로 나열하는 것은 vue에서 하는지..? 
   movies = Movie.objects.all()
@@ -35,3 +40,5 @@ def movie_like(request, movie_pk):
         movie.like_users.add(user)
         serializer = MovieSerializer(movie)
         return Response(serializer.data)
+
+

@@ -2,10 +2,14 @@ from django.db import models
 from django.conf import settings
 from articles.models import Article
 
+class Genre(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+
 class Movie(models.Model):
     adult = models.BooleanField(default=False)
     backdrop_path = models.CharField(max_length=200)
-    genre_ids = models.ManyToManyField(Article, related_name='genre_ids')
+    genre_ids = models.ManyToManyField(Genre, related_name='movie_ids')
     original_language = models.CharField(max_length=100)
     original_title = models.CharField(max_length=200)
     overview = models.CharField(max_length=400)
@@ -19,4 +23,4 @@ class Movie(models.Model):
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movies')
 
     def __str__(self):
-        return self.original_title
+        return self.title

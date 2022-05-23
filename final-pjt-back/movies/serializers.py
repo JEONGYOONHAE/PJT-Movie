@@ -15,10 +15,9 @@ class MovieSerializer(serializers.ModelSerializer):
 
     user = UserSerializer(read_only=True)
     like_users = UserSerializer(read_only=True, many=True)
-    # genre_ids를 바탕으로 랜덤으로 영화 하나 추천
     class Meta:
         model = Movie
-        fields = ('pk', 'user', 'original_title', 'overview', 'genre_ids', 'poster_path', 'like_users')
+        fields = '__all__'
 
 
 class MovieListSerializer(serializers.ModelSerializer):
@@ -28,9 +27,7 @@ class MovieListSerializer(serializers.ModelSerializer):
             fields = ('pk', 'username')
 
     user = UserSerializer(read_only=True)       # user
-    # comment_count = serializers.IntegerField()  # 댓글 수
-    # article_count = serializers.IntegerField()  # 게시글 수 
-
+    like_users = UserSerializer(read_only=True, many=True)
     class Meta:
         model = Movie
-        fields = ('pk', 'user', 'original_title', 'poster_path', 'overview')
+        fields = ('pk', 'user', 'genre_ids',  'overview', 'poster_path', 'title', 'release_date', 'vote_average', 'vote_count', 'like_users')
