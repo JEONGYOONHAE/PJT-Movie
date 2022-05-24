@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ movie }}
     <h1>영화 세부항목</h1>
     <div class="d-flex align-items-center movie-detail-bg">
       <img :src="`https://www.themoviedb.org/t/p/w342/${movie.poster_path}`" class="imgRadius" alt="poster">
@@ -25,6 +24,7 @@
         </div>
         <div>
           평점주기
+          <review-form></review-form>
         </div>
         <div>
           <p>개요</p>
@@ -36,9 +36,11 @@
 </template>
 
 <script>
+import ReviewForm from '@/components/ReviewForm.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  components: { ReviewForm },
   name: 'MovieDetailView',
   data() {
     return {

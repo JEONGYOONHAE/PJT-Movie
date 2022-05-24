@@ -31,6 +31,7 @@ export default {
     SET_MOVIESRANK: (state, moviesRank) => state.moviesRank = moviesRank,
     SET_MOVIESRELESE: (state, moviesRelese) => state.moviesRelese = moviesRelese,
     SET_MOVIESEARCH: (state, movieSearchList) => state.movieSearchList = movieSearchList,
+    SET_MOVIE_REVIEWS: (state, review_id ) => state.movie.review_id = review_id,
   },
   actions: {
     fetchMovies({ commit, state }) {
@@ -72,6 +73,33 @@ export default {
       commit('SET_MOVIESEARCH', _.filter(getters.movies, (movie) => {
         return movie.title.includes(movieTitle)
       }))
+    },
+    createReview({ commit, getters }, { moviePk, score }) {
+      // const score1 = { score }
+      // console.log(score)
+      axios({
+        url: drf.movies.reviews(moviePk),
+        method: 'post',
+        data: {score : Number(score)},
+        headers: getters.authHeader
+      })
+        .then(res => commit('SET_MOVIE_REVIEWS', res.data))
+        .catch(err => console.error(err.response))
+    },
+    updateReview({ commit, getters}, { moviePk, reviewPk, score }) {
+      const newScore = { score }
+      axios({
+        url: drf.moives.reviews(moviePk, reviewPk),
+        method: 'put',
+        data: newScore,
+        headers: getters.authHeader,
+      })
+        .then(res => {
+          commit('SET_MOIVES_REVIEWS', res.data)
+        })
+        .catch(err => console.error(err.response))
     }
+
   },
+
 }
