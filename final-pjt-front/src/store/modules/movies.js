@@ -89,7 +89,7 @@ export default {
     updateReview({ commit, getters}, { moviePk, reviewPk, score }) {
       const newScore = { score }
       axios({
-        url: drf.moives.reviews(moviePk, reviewPk),
+        url: drf.movies.reviews(moviePk, reviewPk),
         method: 'put',
         data: newScore,
         headers: getters.authHeader,
