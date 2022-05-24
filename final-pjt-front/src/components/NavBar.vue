@@ -21,6 +21,9 @@
         </ul>
       </div>
       <ul class="navbar-nav">
+        <li v-if="isAdmin" class="m-3">
+          <a href="http://127.0.0.1:8000/admin/">관리자 페이지</a>
+        </li>
         <li v-if="!isLoggedIn" class="m-3">
           <router-link :to="{ name: 'login' }">로그인</router-link>
         </li>
@@ -44,7 +47,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'NavBar',
   computed: {
-    ...mapGetters(['isLoggedIn', 'currentUser']),
+    ...mapGetters(['isLoggedIn', 'currentUser', 'isAdmin']),
     username() {
       return this.currentUser.username ? this.currentUser.username : 'guest'
     },

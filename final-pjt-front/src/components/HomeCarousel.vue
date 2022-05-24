@@ -35,13 +35,13 @@ import _ from 'lodash'
 export default {
   name: 'HomeCarousel',
   props: {
-    movies: Object,
+    movies: Array,
   },
   computed: {
     randomImg() {
       let randomMovie = _.sampleSize(this.movies, 3)
       randomMovie = randomMovie.map( obj => {
-        return 'https://www.themoviedb.org/t/p/w342' + obj.poster_path
+        return 'https://www.themoviedb.org/t/p/w342' + obj.backdrop_path
       })
       return randomMovie
     },

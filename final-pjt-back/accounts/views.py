@@ -13,3 +13,12 @@ def profile(request, username):
     user = get_object_or_404(User, username=username)
     serializer = ProfileSerializer(user)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def isadmin(request, username):
+    user = get_object_or_404(User, username=username)
+    if request.user.is_superuser:
+        return Response({'is_supersuser': True})
+    else:
+        return Response({'is_supersuser': False})

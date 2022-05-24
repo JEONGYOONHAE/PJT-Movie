@@ -12,6 +12,7 @@ export default {
     signup: () => HOST + ACCOUNTS + 'signup/',
     currentUserInfo: () => HOST + ACCOUNTS + 'user/',
     profile: username => HOST + ACCOUNTS + 'profile/' + username,
+    isAdmin: username => HOST + ACCOUNTS + 'isadmin/' + username,
   },
   articles: {
     articles: () => HOST + ARTICLES,

@@ -1,7 +1,7 @@
 <template>
   <form 
     class="my-4"
-    @submit.prevent="onSubmit"
+    @submit.prevent="searchSubmit"
   >
     <button>
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
@@ -11,17 +11,31 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+import _ from 'lodash'
+
 export default {
   name: 'MovieSearch',
   data() {
     return {
-      movieTitle: ''
+      movieTitle: '',
     }
   },
+  computed: {
+    ...mapGetters(['movies', 'movieSearchList']),
+  },
   methods: {
-    onSubmit() {},
+    ...mapActions(['movieSearch']),
+    searchSubmit() {
+      this.movieSearch(this.movieTitle)
+      this.movieTitle = ''
+      if (_.isEmpty(this.movieSearchList)) {
+        alert('검색 결과가 없습니다.')
+      } else {
+        this.$router.push('movies')
+      }
+    }
   }
-
 }
 </script>
 

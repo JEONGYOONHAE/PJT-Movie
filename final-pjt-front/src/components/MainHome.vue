@@ -17,7 +17,7 @@ export default {
   name: 'MainHome',
   components: { MovieCard },
   props: {
-    movies: Object,
+    movies: Array,
   }
 }
 </script>

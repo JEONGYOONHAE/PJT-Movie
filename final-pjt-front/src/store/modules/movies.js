@@ -10,6 +10,7 @@ export default {
     movie: {},
     moviesRank: [],
     moviesRelese: [],
+    movieSearchList: [],
   },
   getters: {
     movies: state => state.movies,
@@ -22,12 +23,14 @@ export default {
       }
       return true
     },
+    movieSearchList: state => state.movieSearchList
   },
   mutations: {
     SET_MOVIES: (state, movies) => state.movies = movies,
     SET_MOVIE: (state, movie) => state.movie = movie,
     SET_MOVIESRANK: (state, moviesRank) => state.moviesRank = moviesRank,
     SET_MOVIESRELESE: (state, moviesRelese) => state.moviesRelese = moviesRelese,
+    SET_MOVIESEARCH: (state, movieSearchList) => state.movieSearchList = movieSearchList,
   },
   actions: {
     fetchMovies({ commit, state }) {
@@ -65,5 +68,10 @@ export default {
         .then(res => commit('SET_MOVIE', res.data))
         .catch(err => console.error(err.response))
     },
+    movieSearch({ commit, getters }, movieTitle) {
+      commit('SET_MOVIESEARCH', _.filter(getters.movies, (movie) => {
+        return movie.title.includes(movieTitle)
+      }))
+    }
   },
 }

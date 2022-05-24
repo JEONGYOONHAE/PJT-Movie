@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ movie }}
     <h1>영화 세부항목</h1>
     <div class="d-flex align-items-center movie-detail-bg">
       <img :src="`https://www.themoviedb.org/t/p/w342/${movie.poster_path}`" class="imgRadius" alt="poster">
@@ -19,7 +20,11 @@
             추천
             <span :class="{'text-danger': isLikeMovie }"><font-awesome-icon icon="fa-solid fa-heart" /></span>
             {{ likeCount }}
-          </button>
+          </button> 평점: 
+          <span>{{ movie.vote_average }}</span>
+        </div>
+        <div>
+          평점주기
         </div>
         <div>
           <p>개요</p>
