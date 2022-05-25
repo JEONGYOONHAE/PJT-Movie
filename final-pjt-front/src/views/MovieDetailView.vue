@@ -20,9 +20,9 @@
             <span :class="{'text-danger': isLikeMovie }"><font-awesome-icon icon="fa-solid fa-heart" /></span>
             {{ likeCount }}
           </button> 평점: 
-          <span>{{ movie.vote_average }}</span>
+          <span>{{ movieScore }}</span>
         </div>
-        <div>
+        <div v-if="correctMovie">
           <review-item></review-item>
         </div>
         <div>
@@ -57,9 +57,24 @@ export default {
     setReview() {
       return this.movie? this.movie.review_id : []
     },
+    correctMovie() {
+      if (this.movie.id === this.$route.params.moviePk) {
+        return true
+      } else {
+        return false
+      }
+    },
+    movieScore() {
+      const sumWithInitial = this.movie.review_id.reduce(
+        (accumulator, obj) => accumulator + obj.score,
+        0
+      );
+      let movieScoreAvg = ((this.movie.vote_count*this.movie.vote_average) + sumWithInitial) / (this.movie.review_id.length + this.movie.vote_count)
+      return movieScoreAvg.toFixed(2)
+    }
   },
   methods: {
-    ...mapActions(['fetchMovie', 'likeMovie'])
+    ...mapActions(['fetchMovie', 'likeMovie']),
   },
   created() {
     this.fetchMovie(this.moviePk)

@@ -28,5 +28,6 @@ export default {
     movie: moviePK => HOST + MOVIE + `${moviePK}/`,
     likeMoive: moviePK => HOST + MOVIE + `${moviePK}/` + 'like/',
     reviews: moviePK => HOST + MOVIE + `${moviePK}/` + REVIEWS,
+    review: (moviePK, reviewPk) => HOST + MOVIE + `${moviePK}/` + REVIEWS + `${reviewPk}/`
   } 
 }

@@ -28,11 +28,11 @@
     </div>
     <div v-show="choose === 2">
       <div 
-      v-for="article in profileLikeArticles"
-      :key="article.pk"
+      v-for="likeMovie in profileLikeMovie"
+      :key="likeMovie.pk"
       >
         <div>
-          제목 : {{ article.title }}
+          제목 : {{ likeMovie.title }}
         </div>
         <hr>
       </div>
@@ -55,8 +55,8 @@ export default {
     profileArticles() {
       return this.profile.articles
     },
-    profileLikeArticles() {
-      return this.profile.like_articles
+    profileLikeMovie() {
+      return this.profile.like_movies
     }
   },
   methods: {

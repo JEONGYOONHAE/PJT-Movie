@@ -1,6 +1,5 @@
 <template>
   <form @submit.prevent="onSubmit">
-    {{ article }}
     <div class="text-end"><button>{{ action }}</button></div>
     <div>
       <div class="py-1">

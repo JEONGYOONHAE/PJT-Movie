@@ -11,6 +11,7 @@ export default {
     moviesRank: [],
     moviesRelese: [],
     movieSearchList: [],
+    payload: {},
   },
   getters: {
     movies: state => state.movies,
@@ -18,20 +19,13 @@ export default {
     moviesRank: state => state.moviesRank,
     moviesRelese: state => state.moviesRelese,
     isLikeMovie: (state, getters) => {
-      if (_.findIndex(state.movie.like_users, ['username', getters.currentUser.username]) === -1) {
-        return false
-      }
-      return true
+      return !!state.movie.like_users.find(obj => obj.username === getters.currentUser.username)
     },
     movieSearchList: state => state.movieSearchList,
     isReview: (state, getters) => {
-      if (_.findIndex(state.movie.review_id, obj => {
-        return obj.user.username === getters.currentUser.username
-      }) === -1) {
-        return false
-      }
-      return true
-    }
+      return !!state.movie.review_id.find(obj => obj.user.username === getters.currentUser.username)
+    },
+    payload: state => state.payload,
   },
   mutations: {
     SET_MOVIES: (state, movies) => state.movies = movies,
@@ -39,7 +33,8 @@ export default {
     SET_MOVIESRANK: (state, moviesRank) => state.moviesRank = moviesRank,
     SET_MOVIESRELESE: (state, moviesRelese) => state.moviesRelese = moviesRelese,
     SET_MOVIESEARCH: (state, movieSearchList) => state.movieSearchList = movieSearchList,
-    SET_MOVIE_REVIEWS: (state, review_id ) => state.movie.review_id = review_id,
+    SET_MOVIE_REVIEWS: (state, review_id) => state.movie.review_id = review_id,
+    SET_PAYLOAD: (state, payload) => state.payload = payload,
   },
   actions: {
     fetchMovies({ commit, state }) {
@@ -82,7 +77,7 @@ export default {
         return movie.title.includes(movieTitle)
       }))
     },
-    createReview({ commit, getters }, { moviePk, score }) {
+    createReview({ commit, getters, dispatch }, { moviePk, score }) {
       // const score1 = { score }
       // console.log(score)
       axios({
@@ -91,31 +86,54 @@ export default {
         data: {score : Number(score)},
         headers: getters.authHeader
       })
-        .then(res => commit('SET_MOVIE_REVIEWS', res.data))
+        .then(res => {
+          commit('SET_MOVIE_REVIEWS', res.data)
+          dispatch('fetchReview')
+        })
         .catch(err => console.error(err.response))
     },
-    updateReview({ commit, getters}, { moviePk, reviewPk, score }) {
+    updateReview({ commit, getters, dispatch }, { moviePk, reviewPk, score }) {
       const newScore = { score }
       axios({
-        url: drf.movies.reviews(moviePk, reviewPk),
+        url: drf.movies.review(moviePk, reviewPk),
         method: 'put',
         data: newScore,
         headers: getters.authHeader,
       })
         .then(res => {
           commit('SET_MOVIE_REVIEWS', res.data)
+          dispatch('fetchReview')
         })
         .catch(err => console.error(err.response))
     },
-    deleteReview({ commit, getters }, { moviePk, reviewPk }) {
+    deleteReview({ commit, getters, dispatch }, { moviePk, reviewPk }) {
       if (confirm('정말 삭제하시겠습니까?')) {
         axios({
-          url: drf.movies.reviews(moviePk, reviewPk),
+          url: drf.movies.review(moviePk, reviewPk),
           method: 'delete',
           headers: getters.authHeader
         })
-          .then(res => commit('SET_MOVIE_REVIEWS', res.data))
+          .then(res => {
+            commit('SET_MOVIE_REVIEWS', res.data)
+            dispatch('fetchReview')
+          })
           .catch(err => console.error(err.response))
+      }
+    },
+    fetchReview({ commit, getters }) {
+      if (getters.isReview) {
+        const getReview = getters.movie.review_id.find(obj => obj.user.username === getters.currentUser.username)
+        let 파스타먹고싶다 = {
+          moviePk: getReview.movie_id,
+          reviewPk: getReview.pk,
+          score: getReview.score
+        }
+        commit('SET_PAYLOAD', 파스타먹고싶다)
+      } else {
+        let 파스타먹고싶다222 = {
+          score: 0
+        }
+        commit('SET_PAYLOAD', 파스타먹고싶다222)
       }
     }
   },

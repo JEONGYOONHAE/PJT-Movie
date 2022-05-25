@@ -58,7 +58,7 @@ def create_review(request, movie_pk):
 
 @api_view(['PUT', 'DELETE'])
 def review_update_or_delete(request, movie_pk, review_pk):
-    movie = get_object_or_404(movie, pk=movie_pk)
+    movie = get_object_or_404(Movie, pk=movie_pk)
     review = get_object_or_404(Review, pk=review_pk)
 
     def update_review():
@@ -66,14 +66,14 @@ def review_update_or_delete(request, movie_pk, review_pk):
             serializer = ReviewSerializer(instance=review, data=request.data)
             if serializer.is_valid(raise_exception=True):
                 serializer.save()
-                reviews = movie.reviews.all()
+                reviews = movie.review_id.all()
                 serializer = ReviewSerializer(reviews, many=True)
                 return Response(serializer.data)
 
     def delete_review():
         if request.user == review.user:
             review.delete()
-            reviews = movie.reviews.all()
+            reviews = movie.review_id.all()
             serializer = ReviewSerializer(reviews, many=True)
             return Response(serializer.data)
     
