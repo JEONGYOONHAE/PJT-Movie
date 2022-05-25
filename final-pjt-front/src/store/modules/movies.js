@@ -23,7 +23,15 @@ export default {
       }
       return true
     },
-    movieSearchList: state => state.movieSearchList
+    movieSearchList: state => state.movieSearchList,
+    isReview: (state, getters) => {
+      if (_.findIndex(state.movie.review_id, obj => {
+        return obj.user.username === getters.currentUser.username
+      }) === -1) {
+        return false
+      }
+      return true
+    }
   },
   mutations: {
     SET_MOVIES: (state, movies) => state.movies = movies,
@@ -95,11 +103,21 @@ export default {
         headers: getters.authHeader,
       })
         .then(res => {
-          commit('SET_MOIVES_REVIEWS', res.data)
+          commit('SET_MOVIE_REVIEWS', res.data)
         })
         .catch(err => console.error(err.response))
+    },
+    deleteReview({ commit, getters }, { moviePk, reviewPk }) {
+      if (confirm('정말 삭제하시겠습니까?')) {
+        axios({
+          url: drf.movies.reviews(moviePk, reviewPk),
+          method: 'delete',
+          headers: getters.authHeader
+        })
+          .then(res => commit('SET_MOVIE_REVIEWS', res.data))
+          .catch(err => console.error(err.response))
+      }
     }
-
   },
 
 }

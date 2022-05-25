@@ -1,13 +1,5 @@
 <template>
-  <form @submit.prevent="onSubmit">
-    <div>
-      <input type="range" id="volume" name="volume" min="0" max="10" v-model="star">
-      <label for="volume">{{ star }}</label>
-    </div>
-    <div>
-      <input type="submit" value="평점등록">
-    </div>
-  </form>
+  <div></div>
 </template>
 
 <script>

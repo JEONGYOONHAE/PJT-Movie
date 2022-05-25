@@ -23,8 +23,7 @@
           <span>{{ movie.vote_average }}</span>
         </div>
         <div>
-          평점주기
-          <review-form></review-form>
+          <review-item></review-item>
         </div>
         <div>
           <p>개요</p>
@@ -36,11 +35,11 @@
 </template>
 
 <script>
-import ReviewForm from '@/components/ReviewForm.vue'
 import { mapGetters, mapActions } from 'vuex'
+import ReviewItem from '@/components/ReviewItem.vue'
 
 export default {
-  components: { ReviewForm },
+  components: { ReviewItem },
   name: 'MovieDetailView',
   data() {
     return {
@@ -48,13 +47,16 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['movie', 'isLikeMovie']),
+    ...mapGetters(['movie', 'isLikeMovie', 'isReview', 'currentUser']),
     likeCount() {
       return this.movie.like_users?.length
     },
     genreList() {
       return this.movie.genre_ids
-    }
+    },
+    setReview() {
+      return this.movie? this.movie.review_id : []
+    },
   },
   methods: {
     ...mapActions(['fetchMovie', 'likeMovie'])

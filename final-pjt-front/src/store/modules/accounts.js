@@ -125,7 +125,6 @@ export default {
         headers: getters.authHeader,
       })
         .then(res => {
-          console.log(res)
           commit('SET_IS_ADMIN', res.data.is_supersuser)
         })
         .catch(err => {
