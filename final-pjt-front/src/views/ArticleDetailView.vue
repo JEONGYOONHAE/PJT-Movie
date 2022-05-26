@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-center">
-    <div class="article-center">
+    <div class="article-center mb-5">
       <div class="empty-space"></div>
       <h3>{{ article.title }}</h3>
       <b>{{ article.user.username }}</b> | {{ createdArticle }}
