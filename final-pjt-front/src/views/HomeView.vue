@@ -1,24 +1,26 @@
 <template>
-  <div class="home text-center">
+  <div class="home text-center mrb" >
     <home-carousel
       :movies="movies"
     ></home-carousel>
-    <div class="ms-5">
+    <div class="ms-4">
       <movie-search></movie-search>
-      <div>
-        <h3># 최신 상영 영화</h3>
+      <div class="d-flex row justify-content-center">
+        <div class="home_title">
+          <h3 style="font-family:ROKAFSansBold">최신 상영 영화</h3>
+        </div>
         <main-home
           :movies="moviesRelese"
         ></main-home>
       </div>
       <div>
-        <h3># 인기순 추천 영화</h3>
+        <h3 class="my-4" style="font-family:ROKAFSansBold">인기순 추천 영화</h3>
         <main-home
           :movies="moviesRank"
         ></main-home>
       </div>
       <div>
-        <h3># 활동 많이 한 유저</h3>
+        <h3 style="font-family:ROKAFSansBold">활동 많이 한 유저</h3>
         <user-active></user-active>
       </div>
     </div>
@@ -60,3 +62,15 @@ export default {
 
 }
 </script>
+<style>
+@font-face {
+    font-family: 'ROKAFSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+  .home_title{
+    color : #254b67;
+    height : 70px;
+  }
+</style>

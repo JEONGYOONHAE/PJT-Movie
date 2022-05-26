@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="d-flex justify-content-between navbar navbar-expand navbar-light bg-light">
+    <nav class="d-flex justify-content-between navbar navbar-expand">
       <div class="d-flex align-items-center">
         <router-link :to="{ name: 'home' }">
           <img class="logo" alt="Vue logo" src="../assets/logo.png">
@@ -66,6 +66,7 @@ nav ul li a {
 }
 
 nav ul li a.router-link-exact-active {
-  color: #42b983;
+  color: #77B6E2;
 }
+
 </style>
