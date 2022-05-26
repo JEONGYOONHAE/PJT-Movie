@@ -10,7 +10,7 @@
             <a href="#" class="social a"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a>
           </div>
           <span>or use your information for registration</span>
-          <input class="a-input" v-model="signupCredentials.username" type="text" id="username" placeholder="아이디" required/>
+          <input class="a-input" v-model="signupCredentials.username" type="text" id="username1" placeholder="아이디" required/>
           <input class="a-input" v-model="signupCredentials.password1" type="password" id="password1" placeholder="비밀번호" required/>
           <input class="a-input" v-model="signupCredentials.password2" type="password" id="password2" placeholder="비밀번호 확인" required/>
           <button class="a-button">Sign Up</button>
