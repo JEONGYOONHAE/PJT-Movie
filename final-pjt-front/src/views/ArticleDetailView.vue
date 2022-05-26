@@ -7,9 +7,9 @@
       <hr>
       <div v-if="isAuthor">
         <router-link :to="{ name: 'articleEdit', params: { articlePk } }">
-          <button>수정</button>
+          <button class="comment-btn">수정</button>
         </router-link>
-        <button @click="deleteArticle(articlePk)">삭제</button>
+        <button class="comment-btn" @click="deleteArticle(articlePk)">삭제</button>
       </div>
       <div class="articleContent py-5">
         {{ article.content }}

@@ -16,10 +16,6 @@
           :movies="moviesRank"
         ></main-home>
       </div>
-      <div>
-        <h3 class="hv_title">활동 많이 한 유저</h3>
-        <user-active></user-active>
-      </div>
     </div>
   </div>
 </template>
@@ -27,7 +23,7 @@
 <script>
 // @ is an alias to /src
 import MainHome from '@/components/MainHome.vue'
-import UserActive from '@/components/UserActive.vue'
+// import UserActive from '@/components/UserActive.vue'
 import MovieSearch from '@/components/MovieSearch.vue'
 
 import { mapGetters, mapActions } from 'vuex'
@@ -36,7 +32,7 @@ export default {
   name: 'HomeView',
   components: {
     MainHome,
-    UserActive,
+    // UserActive,
     MovieSearch,
   },
   computed: {

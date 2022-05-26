@@ -4,18 +4,18 @@
     <div class="base-body">
       <router-view/>
     </div>
-    <!-- <footer-bar v-if="isLoggedIn" class="sticky-bottom"></footer-bar> -->
+    <footer-bar v-if="isLoggedIn" class="sticky-bottom"></footer-bar>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import NavBar from '@/components/NavBar.vue'
-// import FooterBar from '@/components/FooterBar.vue'
+import FooterBar from '@/components/FooterBar.vue'
 
 export default {
   name: 'App',
-  components: { NavBar },
+  components: { NavBar, FooterBar },
   computed: {
     ...mapGetters(['isLoggedIn'])
   }
