@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <nav-bar v-if="isLoggedIn"></nav-bar>
-    <!-- <footer-bar></footer-bar> -->
-    <router-view/>
+    <div class="base-body">
+      <router-view/>
+    </div>
+    <!-- <footer-bar v-if="isLoggedIn" class="sticky-bottom"></footer-bar> -->
   </div>
 </template>
 
@@ -41,5 +43,11 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.base-body {
+  display: relative;
+  max-width: 100vw;
+  min-height: calc(100vh - 190px);
 }
 </style>

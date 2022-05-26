@@ -1,24 +1,26 @@
 <template>
-  <form @submit.prevent="onSubmit">
-    <div class="text-end"><button>{{ action }}</button></div>
-    <div>
-      <div class="py-1">
-        <input class="articleInput" v-model="formArticle.title" placeholder="제목을 입력해 주세요." type="text" id="title">
+  <div class="d-flex justify-content-center">
+    <form @submit.prevent="onSubmit" class="article-form-center">
+      <div class="text-end"><button class="like-btn">{{ action }}</button></div>
+      <div>
+        <div class="py-1">
+          <input class="articleInput" v-model="formArticle.title" placeholder="제목을 입력해 주세요." type="text" id="title">
+        </div>
       </div>
-    </div>
-    <div>
-      <div class="py-1">
-        <textarea 
-          v-model="formArticle.content" 
-          type="text" 
-          cols="30" rows="10"
-          id="content" name="content" 
-          class="articleInput"
-          placeholder="내용을 입력해 주세요."
-        ></textarea>
+      <div>
+        <div class="py-1">
+          <textarea 
+            v-model="formArticle.content" 
+            type="text" 
+            cols="30" rows="10"
+            id="content" name="content" 
+            class="articleInput"
+            placeholder="내용을 입력해 주세요."
+          ></textarea>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -44,7 +46,6 @@ export default {
       if (this.action === 'create') {
         this.createArticle(this.formArticle)
       } else if (this.action === 'update') {
-        alert(this.article.pk)
         const payload = {
           pk: this.article.pk,
           ...this.formArticle,
@@ -58,6 +59,10 @@ export default {
 
 <style>
 .articleInput {
+  width: 80%;
+}
+
+.article-form-center{
   width: 80%;
 }
 </style>
