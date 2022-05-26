@@ -1,23 +1,23 @@
 <template>
+<div class="home_container d-flex align-items-center">
   <div class="row justify-content-center my_card mb-5">
     <div class="col-12 col-md-10 col-lg-8 mt-2">
-      <span class="fs-2" style="font-family:ROKAFSansBold">PLEASE ENTER A TITLE</span>
-      <form 
-        class="card card-sm border-0"
+      <div class="font_white ms_title mt-2" style="font-family:ROKAFSansBold">Welcome :D</div>
+      <div class="font_white ms_title2 mb-4" style="font-family:ROKAFSansBold">Millions of movies, TV shows to discover.</div>
+      <form  
         @submit.prevent="searchSubmit">
         <div class="card-body row no-gutters align-items-center my_card">
-          <div class="col-auto">
-          </div>
           <div class="col">
             <input style="font-family:ROKAFSansMedium" class="form-control form-control-lg form-control-borderless" type="text" placeholder="영화를 검색해주세요." v-model="movieTitle">
           </div>
           <div class="col-auto my_btn">
-            <button style="font-family:ROKAFSansBold" class="btn btn-lg color-white" type="submit">Search</button>
+            <button style="font-family:ROKAFSansBold" class="btn btn-lg font_white" type="submit">Search</button>
           </div>
         </div>
       </form>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -61,8 +61,26 @@ export default {
   color: white;
 }
 .my_card {
-  background-color:#D1ECFB;
-  
-
+  margin-top: 100px;
+  width: 100%;
+}
+.home_container {
+  background : url("https://www.themoviedb.org/t/p/original/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg");
+  width: 100%;
+  height: 450px;;
+}
+.card-body {
+  background-color: none;
+}
+.font_white {
+  color: white;
+}
+.ms_title {
+  font-size: 70px;
+  color: white;
+}
+.ms_title2{
+  font-size: 50px;
+  color: white;
 }
 </style>

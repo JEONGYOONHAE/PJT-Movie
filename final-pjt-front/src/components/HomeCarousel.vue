@@ -1,31 +1,22 @@
 <template>
-  <div class="d-flex justify-content-center ">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block carousel-img" :src="randomImg[0]" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block carousel-img" :src="randomImg[1]" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block carousel-img" :src="randomImg[2]" alt="Third slide">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </a>
-    </div>
-  </div>
-</template>
+<!-- <div>
+  <b-card
+    overlay
+    img-src="https://picsum.photos/900/250/?image=3"
+    img-alt="Card Image"
+    text-variant="white"
+
+    sub-title="Subtitle"
+  >
+    <b>Welcom.</b>
+    <b>Millions of movies, TV shows and people to discover. Explore now.</b>
+    <b-card-text>
+      <p>please enter a title of movie</p>
+    </b-card-text>
+  </b-card>
+</div>-->
+<div></div>
+</template> 
 
 <script>
 import _ from 'lodash'

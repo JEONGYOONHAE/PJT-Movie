@@ -1,24 +1,21 @@
 <template>
-  <div class="m-3 mrb">
+  <div class="mrb">
     <h1 class="h1_title">영화 랭킹</h1>
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <th scope="col">순위</th>
-          <th scope="col">제목</th>
-          <th scope="col">평점</th>
-          <th scope="col">추천</th>
-        </tr>
-      </thead>
-      <tbody>
-      <movie-table-body
-        v-for="(movie, index) in moviesRank"
-        :key="movie.pk"
-        :index="index+1"
-        :movie="movie"
-      ></movie-table-body>
-      </tbody>
-    </table>
+    <div class="container d-flex justify-content-between">
+      <div class="rank_grid">
+        <div class="row row-cols-4">
+          <movie-table-body
+            v-for="(movie, index) in moviesRank"
+            :key="movie.pk"
+            :index="index+1"
+            :movie="movie"
+            class="col"
+          ></movie-table-body>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -53,8 +50,10 @@ export default {
     font-style: normal;
 }
 .h1_title {
-  margin-top: 0.7em;
-  margin-left: 0.7em;
+  margin-top: 40px;
+  margin-left: 40px;
   font-family: 'ROKAFSansBold';
+}
+.rank_grid{
 }
 </style>

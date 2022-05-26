@@ -15,11 +15,11 @@
       <div class="card-movie-info">
         <div class="movie-running-time">
             <label>Last update</label>
-            <span>Sun 8 Sept - 10:00PM</span>
+            <span>   Sun 8 Sept - 10:00PM</span>
         </div>
         <div class="movie-running-time">
             <label>Running time</label>
-            <span>2hr 09min</span>
+            <span>   2hr 09min</span>
         </div>
       </div>
     </div>
@@ -57,39 +57,39 @@ export default {
     border-top-right-radius: 10px;
 }
 .card-header-icon {
-    position: relative;
+  position: relative;
 }
  
 .header-icon {
-    width: 100%;
-    height: 367px;
-    line-height: 367px;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0 auto;
-    color: #ffffff;
-    font-size: 54px;
-    text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
-    opacity: .85;
+  width: 100%;
+  height: 367px;
+  line-height: 367px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 54px;
+  text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
+  opacity: .85;
 }
  
 .header-icon:hover {
-    background: rgba(0, 0, 0, 0.15);
-    font-size: 74px;
-    text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    opacity: 1;
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 74px;
+  text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  opacity: 1;
 }
 .card-view:hover {
-    -webkit-transform: scale(1.03);
-    transform: scale(1.03);
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
 }
  
 .card-movie-content {
-    padding: 30px 18px 24px 18px;
-    margin: 0;
+  padding: 30px 18px 24px 18px;
+  margin: 0;
 }
  
 .card-movie-content-head,
@@ -99,26 +99,35 @@ export default {
 }
  
 .card-movie-title {
-    font-size: 22px;
-    margin: 0;
-    display: table-cell;
+  font-size: 22px;
+  margin: 0;
+  display: table-cell;
+  font-weight: bold;
 }
  
 .ratings {
-    width: 50px;
-    height: 15px;
-    background-size: contain;
-    display: table-cell;
-    position: relative;
-    margin-top: 5px;
-    font-weight: 600;
+  width: 50px;
+  height: 15px;
+  background-size: contain;
+  display: table-cell;
+  position: relative;
+  margin-top: 5px;
+  font-weight: 600;
+  font-size:30px;
+
 }
  
 .ratings span {
-    color: #2196F3;
+  color: #2196F3;
+  font-size:30px;
 }
  
 .card-movie-info {
-    margin-top: 1em;
+  margin-top: 1em;
+  font-size:20px;
+  font-weight: bold;
+}
+.movie-running-time span {
+  font-size:15px;
 }
 </style>

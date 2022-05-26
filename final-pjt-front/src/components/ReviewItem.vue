@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 평점을 등록한 적이 없는 경우 등록 -->
-    <span v-if="!isReview">
+    <div v-if="!isReview">
       <form @submit.prevent="onSubmit">
         <div>
           <input type="range" id="score" name="score" min="0" max="10" v-model="payload.score">
@@ -11,10 +11,10 @@
           <input type="submit" value="평점등록">
         </div>
       </form>
-    </span>
+    </div>
     
     <!-- 평점을 등록했던 경우 수정, 삭제 -->
-    <span v-if="isReview">
+    <div v-if="isReview">
       <span v-if="!isEditing">
         <div>내 평점 : {{ payload.score }}</div>
       </span>
@@ -32,7 +32,7 @@
         <button @click="switchIsEditing">수정</button> |
         <button @click="deleteReview(payload)">삭제</button>
       </span>
-    </span>
+    </div>
   </div>
 </template>
 

@@ -1,17 +1,19 @@
 <template>
 <div>
-  <div class="card-view">
-    <div class="card-header">
+  <div class="hcard-view">
+    <div class="hcard-header">
       <router-link :to="{ name: 'movie', params: { moviePk: movie.pk } }">
-        <img  :src="`https://www.themoviedb.org/t/p/w300/${ movie.poster_path }`" style="withd:100%" alt="썸네일">
+        <img :src="`https://www.themoviedb.org/t/p/w300/${ movie.poster_path }`" style="withd:100%" alt="썸네일">
       </router-link>
-    </div>
+    </div> 
 
-    <div class="card-movie-content">
-      <div class="card-movie-content-head">
-          <h3 class="card-movie-title">{{ movie.title }}</h3>
+    <div class="hcard-movie-content">
+      <div class="hcard-movie-content-head">
+          <h3 class="hcard-movie-title">{{ movie.title }}</h3>
+        <div class="d-flex align-items-end">
+          <div class="hratings "><span>{{ movie.vote_average }}</span>/10</div>
+        </div>
       </div>
-      <div class="ratings"><span>{{ movie.vote_average }}</span>/10</div>
     </div>
   </div>
 </div>
@@ -35,7 +37,7 @@ export default {
 .imgRadius {
   border-radius: 20px;
 }
-.card-view {
+.hcard-view {
     background: #ffffff;
     box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -45,7 +47,7 @@ export default {
     display: inline-block;
 }
  
-.card-header {
+.hcard-header {
     padding: 0;
     margin: 0;
 
@@ -54,7 +56,7 @@ export default {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.card-header-icon {
+.hcard-header-icon {
     position: relative;
 }
  
@@ -79,45 +81,48 @@ export default {
     border-top-right-radius: 10px;
     opacity: 1;
 }
-.card-view:hover {
+.hcard-view:hover {
     -webkit-transform: scale(1.03);
     transform: scale(1.03);
     box-shadow: 0px 10px 25px rgba(84, 176, 184, 0.605);
 }
  
-.card-movie-content {
+.hcard-movie-content {
     padding: 30px 18px 24px 18px;
     margin: 0;
 }
  
-.card-movie-content-head,
-.card-movie-info {
+.hcard-movie-content-head,
+.hcard-movie-info {
     display: table;
     width: 100%;
 }
  
-.card-movie-title {
+.hcard-movie-title {
     font-size: 22px;
     margin: 0;
     display: table-cell;
+    font-weight:bold;
 }
  
-.ratings {
-    width: 50px;
-    height: 15px;
-    background-size: contain;
-    display: table-cell;
-    text-align: right;
-    position: relative;
-    margin-top: 5px;
-    font-weight: 600;
+.hratings {
+  width: 50px;
+  height: 15px;
+  background-size: contain;
+  display: table-cell;
+  text-align: right;
+  position: relative;
+  margin-top: 5px;
+  font-weight: 600;
+
 }
  
-.ratings span {
-    color: #2196F3;
+.hratings span {
+  color: #2196F3;
+  font-size:20px;
 }
  
-.card-movie-info {
-    margin-top: 1em;
+.hcard-movie-info {
+  margin-top: 1em;
 }
 </style>

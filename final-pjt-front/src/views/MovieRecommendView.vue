@@ -116,20 +116,6 @@ border-color:black;
   background: url("./image/background.png");
 }
 
-.mdv_genretag {
-  background: white;
-  border-radius: 10px;
-  padding: 3px 8px;
-  font-size: 20px;
-  margin-right: 4px;
-  line-height: 35px;
-  cursor: pointer;
-}
-
-.mdv_genretag:hover {
-  background: #ddd;
-}
-
 h1 {
   font-size: 100px;
 }
@@ -137,10 +123,10 @@ h1 {
 .rout_tag {
   width:30%;
   height:50px;
-  color: #77B6E2;
+  color: #d1dde5;
   text-decoration:none;
   font-family: 'Montserrat', sans-serif;
-  border:2px solid #77B6E2;
+  border:2px solid #d1dde5;
   padding:10px 10px 10px 40px;
   font-size:12px;
   background-size:12px 12px;
@@ -157,7 +143,7 @@ h1 {
 }
 .rout_tag:hover { 
   color: #000000;
-  background-color: #77B6E2;
+  background-color: #d1dde5;
   background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);
   background-size:12px 12px;
   background-repeat:no-repeat;

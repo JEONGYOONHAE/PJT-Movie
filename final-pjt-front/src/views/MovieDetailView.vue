@@ -1,38 +1,37 @@
 <template>
 <div>
   <div class="movie-card">
-  <div class="container">
+  <div class="md_container">
     <a href="#" class="movie-poster"><img :src="`https://www.themoviedb.org/t/p/w342/${movie.poster_path}`" alt="poster"></a>
     <div class="hero">       
       <div class="details">
         <div class="title1">{{ movie.title }}</div> 
         <div class="my-2">
-        <span
-          v-for=" genre in genreList"
-          :key="genre.id"
-          class="tag text-center mx-1">
-          {{ genre.name }}
-        </span>
-        <span class="likes align-self-end mx-2">{{ movieScore }}</span>
-        <span class="like align-self-end">
+          <span
+            v-for=" genre in genreList"
+            :key="genre.id"
+            class="tag text-center mx-1">
+            {{ genre.name }}
+          </span>
+          <span class="likes align-self-end mx-2">{{ movieScore }}</span>
+          <span class=" align-self-end">
             <button @click="likeMovie(movie.id)">
               <span :class="{'text-danger': isLikeMovie }"><font-awesome-icon icon="fa-solid fa-heart" /></span>
             </button>
           </span>
+        </div>
         <div class="inputscore my-4" v-if="correctMovie">
           <review-item></review-item>
         </div>
-        </div>
-      </div> <!-- end details -->
-    </div> <!-- end hero -->
-  
+      </div> 
+    </div> 
     <div class="description">
       <div class="column2">
-        <p>{{ movie.overview }}</p>
-      </div> <!-- end column2 -->
-    </div> <!-- end description -->
-  </div> <!-- end container -->
-</div> <!-- end movie-card -->
+        <div>{{ movie.overview }}</div>
+      </div> 
+    </div> 
+  </div> 
+</div> 
 </div>
 </template>
 
@@ -100,8 +99,8 @@ body {
 }
 .movie-poster{
   position: absolute;
-  top : 15%;
-  left : 63%;
+  top : 10%;
+  left : 70%;
   z-index: 6;
 }
 a {
@@ -118,13 +117,14 @@ a:hover {
   position: relative;
 }
 
-.container {
+.md_container {
   margin: 0 auto;
-  width: 780px;
+  width: 100%;
   height: 700px;
   background: #F0F0ED;
   border-radius: 5px;
   box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, 0.55);
+  position:relative;
 }
 
 .hero {
@@ -225,5 +225,4 @@ a:hover {
   font-size: 25px;
 }
 
-fieldset, label { margin: 0; padding: 0; }
 </style>
