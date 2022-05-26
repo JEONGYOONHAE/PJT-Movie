@@ -5,7 +5,6 @@ import store from '../store'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
 import LogoutView from '@/views/LogoutView.vue'
-import SignupView from '@/views/SignupView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 
 import MovieListView from '@/views/MovieListView.vue'
@@ -38,11 +37,6 @@ const routes = [
     path: '/logout',
     name: 'logout',
     component: LogoutView
-  },
-  {
-    path: '/signup',
-    name: 'signup',
-    component: SignupView
   },
   {
     path: '/profile/:username',
@@ -112,7 +106,7 @@ router.beforeEach((to, from, next) => {
 
   const { isLoggedIn } = store.getters
 
-  const noAuthPages = ['login', 'signup', 'home', 'movieRank']
+  const noAuthPages = ['login']
 
   const isAuthRequired = !noAuthPages.includes(to.name)
 

@@ -81,7 +81,7 @@ export default {
         .then(() => {
           dispatch('removeToken')
           commit('SET_IS_ADMIN', false)
-          router.push({ name: 'home' })
+          router.push({ name: 'login' })
         })
         .error(err => {
           console.error(err.response)

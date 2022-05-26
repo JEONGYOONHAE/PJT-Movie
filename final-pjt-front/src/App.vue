@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <nav-bar></nav-bar>
+    <nav-bar v-if="isLoggedIn"></nav-bar>
     <!-- <footer-bar></footer-bar> -->
     <router-view/>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import NavBar from '@/components/NavBar.vue'
 // import FooterBar from '@/components/FooterBar.vue'
 
 export default {
   name: 'App',
   components: { NavBar },
-  
+  computed: {
+    ...mapGetters(['isLoggedIn'])
+  }
 }
 </script>
 
