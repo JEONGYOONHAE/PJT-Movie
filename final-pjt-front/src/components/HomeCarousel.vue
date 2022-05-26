@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center ">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -24,8 +24,6 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </a>
     </div>
-
-
   </div>
 </template>
 
@@ -41,7 +39,7 @@ export default {
     randomImg() {
       let randomMovie = _.sampleSize(this.movies, 3)
       randomMovie = randomMovie.map( obj => {
-        return 'https://www.themoviedb.org/t/p/w342' + obj.backdrop_path
+        return 'https://www.themoviedb.org/t/p/w780' + obj.backdrop_path
       })
       return randomMovie
     },
@@ -53,7 +51,5 @@ export default {
 </script>
 
 <style>
-.carousel-img {
-  
-}
+
 </style>

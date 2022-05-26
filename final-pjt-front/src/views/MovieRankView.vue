@@ -1,6 +1,6 @@
 <template>
-  <div class="m-3">
-    <h1>영화 랭킹</h1>
+  <div class="m-3 mrb">
+    <h1 class="h1_title">영화 랭킹</h1>
     <table class="table text-center">
       <thead>
         <tr>
@@ -46,5 +46,15 @@ export default {
 </script>
 
 <style>
-
+@font-face {
+    font-family: 'ROKAFSansBold', 'ROKAFSansMedium', 'ROKAFSlabSerifMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.h1_title {
+  margin-top: 0.7em;
+  margin-left: 0.7em;
+  font-family: 'ROKAFSansBold';
+}
 </style>
